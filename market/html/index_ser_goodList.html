@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head lang="en">
 	<meta charset="utf-8">
@@ -14,26 +13,43 @@
 	<meta name="HandheldFriendly" content="true"><!--针对不识别viewport的浏览器-->
 	<meta name="MobileOptimized" content="320"><!--微软老式浏览器-->
 	<meta name="msapplication-tap-highlight" content="no"><!--windows phone 点击无高光-->
-	<title>商品详情名称</title>
-	<!--<link rel="stylesheet" href="../css/common.css">-->
-	<!--<link rel="stylesheet" href="../css/index_ser_goodList.css">-->
-	<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/common/js/l/dropload/css/dropload.css">
-	<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">
-</head>
-<style>
-	body,html{background-color:#eeeeee;}
-	html{width: 100%;height: 100%}
-</style>
-<body >
+	<title>产品搜索列表</title>
+	<link rel="stylesheet" href="../../common/js/l/dropload/css/dropload.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/common/js/l/dropload/css/dropload.css">-->
+	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">-->
+	<style>
+		body,html{background-color:#eeeeee;}
+		html{width: 100%;height: 100%}
+		.triangle_up{
+			border-bottom-color: rgb(197, 197, 197);
+		}
+		.triangle_up.active{
+			border-bottom-color: rgb(77, 161, 252);
+		}
+		.triangle_down{
+			border-top-color: rgb(197, 197, 197);
+		}
+		.triangle_down.active{
+			border-top-color: rgb(77, 161, 252);
+		}
+		#tab-zonghe.active,
+		#tab-price.active{
+			color: rgb(77, 161, 252);
+		}
+	</style></head>
+
+<body>
 <!--导航start-->
-<div class="sh_positon_f sh_left_0 sh_right_0 sh_top_0 sh_box-sizing_C  box_shaow sh_bg_color_1 sh_z-index_10" >
+<div class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1">
 	<div class="sh_margin_a sh_width_max ">
-		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90" >
-			<a href="javascript:history.go(-1);"class="sh_font_sz0">
-				<img src="../demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10"/>
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 ">
+			<a href="javascript:history.go(-1);" class="sh_font_sz0">
+				<!--<img src="http://res.csc86.com/v2/shopping_center/market/demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">-->
+				<img src="../demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">
 			</a>
 		</div>
-		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28  tittle" >搜索标题</div>
+		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28  ">纺布</div>
 	</div>
 </div>
 <!--导航end-->
@@ -41,83 +57,57 @@
 <div class="sh_positon_f sh_left_0 sh_right_0 sh_top_90 sh_box-sizing_C  box_shaow sh_bg_color_1 sh_z-index_10">
 	<div class="sh_margin_a sh_width_max ">
 		<ul class="sh_clear  sh_clear sh_te_align_c sh_pd_top20 sh_pd_bottom20">
-			<li class="sh_float_l sh_width_6 sh_font_sz32 sh_pd_bottom10 sh_pd_top10  sh_lingheight_100 sh_bor_right_3 sh_box-sizing_C item" data-aid="0">综合</li>
-			<li class= "sh_float_l sh_width_6 sh_font_sz32 sh_pd_bottom10 sh_pd_top10  sh_lingheight_100 sh_box-sizing_C ">
+			<li id="tab-zonghe" class="sh_float_l sh_width_6 sh_font_sz32 sh_pd_bottom10 sh_pd_top10  sh_lingheight_100 sh_bor_right_3 sh_box-sizing_C active" data-aid="0">综合</li>
+			<li id="tab-price" class="sh_float_l sh_width_6 sh_font_sz32 sh_pd_bottom10 sh_pd_top10  sh_lingheight_100 sh_box-sizing_C">
 				<div class="sh_lingheight_100 sh_positon_r sh_di_inblock sh_width_5">
 					价格
-					<div class="triangle_up item" data-aid="1"></div>
-					<div class="triangle_down item" data-aid="2"></div>
+					<div class="triangle_up price_sort" data-aid="1"></div>
+					<div class="triangle_down price_sort" data-aid="2"></div>
 				</div>
 			</li>
 		</ul>
 	</div>
 </div>
 <!--tab区域end-->
-
-<div class="sh_clear sh_bg_color_1 sh_pd_top182 ">
+<div class="sh_clear sh_pd_top182">
 	<div class=" sh_clear sh_bg_color_1 sh_clear pro_list_container"><!--产品列表start-->
-		<div  class="sh_clear  sh_clear pro_list"><!--产品列表start-->
-			<img src="/v2/shopping_center/market/demo/index_serch_zero.png" alt="" class="sh_img_max"/>
-			<!--<div class="sh_clear  sh_pd_top30  sh_pd_bottom30 sh_bor_top_1 ">-->
-				<!--<div class="sh_width_92 sh_margin_a  sh_clear ">-->
-					<!--<div class="sh_width_4 sh_float_l sh_lingheight_100  sh_font_sz0 ">-->
-						<!--<a href="" data-href=""><img src="../demo/save_store1.png" class="index_ser_list" alt=""/></a>-->
-					<!--</div>-->
-					<!--<div class="sh_width_8 sh_float_l sh_wor_space  sh_positon_r sh_font_sz0">-->
-						<!--<span class="sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10">涤纶210D牛津布PVC胶&nbsp;&nbsp;书包箱包帐篷布料加厚防水耐磨现货</span>-->
-				<!--<span class="sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10">-->
-					<!--<em class="sh_font_color2 ">￥</em><em class="sh_font_color2">30.00</em><em class="sh_font_color2">起</em>-->
-				<!--</span>-->
-						<!--<div class="sh_font_sz24 sh_font_color7 sh_lingheight_100">广东省 深圳市</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		</div><!--综合排名end-->
-		<div  class="sh_clear sh_bg_color_1 sh_clear pro_list" style="display: none"><!--产品列表start-->
-			<div class="sh_clear  sh_pd_top30  sh_pd_bottom30 sh_bor_top_1 ">
+		<div id="pro_list" class="sh_clear sh_bg_color_1 sh_clear "><!--综合排名start-->
+			<div class="sh_clear  sh_pd_top30  sh_pd_bottom30 sh_bor_top_1 sh_bg_color_1">
 				<div class="sh_width_92 sh_margin_a  sh_clear ">
 					<div class="sh_width_4 sh_float_l sh_lingheight_100  sh_font_sz0 ">
-						<a href="" data-href=""><img src="../demo/save_store2.png" class="index_ser_list" alt=""/></a>
+						<a href="http://m.csc86.com/search/product_detail.ftl?productId=4400736" data-href="4400736">
+							<img src="http://img.csc86.com/product/2012/10/28/thumbs/201210281439253_t3.jpg" class="index_ser_list" alt="">
+						</a>
 					</div>
 					<div class="sh_width_8 sh_float_l sh_wor_space  sh_positon_r sh_font_sz0">
-						<span class="sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10">涤纶210D牛津布PVC胶&nbsp;&nbsp;书包箱包帐篷布料加厚防水耐磨现货</span>
-					<span class="sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10">
-						<em class="sh_font_color2 ">￥</em><em class="sh_font_color2">30.00</em><em class="sh_font_color2">起</em>
-					</span>
-						<div class="sh_font_sz24 sh_font_color7 sh_lingheight_100">广东省 深圳市</div>
+						<a href="http://m.csc86.com/search/product_detail.ftl?productId=4400736" data-href="4400736">
+							<span class="sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10 sh_font_color5">无纺布腹OPP膜</span>
+						</a>
+						<span class="sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10">
+							<em class="sh_font_color2 ">￥</em><em class="sh_font_color2">4.<i>00</i></em><em class="sh_font_color2">起</em>
+						</span>
+						<div class="sh_font_sz24 sh_font_color7 sh_lingheight_100">广东省深圳市</div>
 					</div>
 				</div>
 			</div>
-		</div><!--价格end-->
-		<div  class="sh_clear sh_bg_color_1 sh_clear pro_list" style="display: none"><!--产品列表start-->
-			<div class="sh_clear  sh_pd_top30  sh_pd_bottom30 sh_bor_top_1 ">
-				<div class="sh_width_92 sh_margin_a  sh_clear ">
-					<div class="sh_width_4 sh_float_l sh_lingheight_100  sh_font_sz0 ">
-						<a href="" data-href=""><img src="../demo/save_store3.png" class="index_ser_list" alt=""/></a>
-					</div>
-					<div class="sh_width_8 sh_float_l sh_wor_space  sh_positon_r sh_font_sz0">
-						<span class="sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10">涤纶210D牛津布PVC胶&nbsp;&nbsp;书包箱包帐篷布料加厚防水耐磨现货</span>
-					<span class="sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10">
-						<em class="sh_font_color2 ">￥</em><em class="sh_font_color2">30.00</em><em class="sh_font_color2">起</em>
-					</span>
-						<div class="sh_font_sz24 sh_font_color7 sh_lingheight_100">广东省 深圳市</div>
-					</div>
-				</div>
-			</div>
-		</div><!--价格由低到高end-->
-	</div>
-	<div class="sh_full_scr">
-		<div class="sh_width_max sh_margin_a sh_te_align_c">
-			<div class="sh_pr_hg28_62"></div>
-			<img src="../demo/loading.gif" alt="" class="index_go_listLo"/>
 		</div>
 	</div>
 </div>
+<!--综合排名end-->
+<div class="sh_full_scr">
+	<div class="sh_width_max sh_margin_a sh_te_align_c">
+		<div class="sh_pr_hg28_62"></div>
+		<!--<img src="http://res.csc86.com/v2/shopping_center/market/demo/loading.gif" alt="" class="index_go_listLo">-->
+		<img src="../demo/loading.gif" alt="" class="index_go_listLo">
+	</div>
+</div>
 </body>
-<!--<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>-->
-<!--<script src="../../common/seajs/sea.js"></script>-->
-<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/zepto/zepto.min.js"></script>
+<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>
+<script src="../../common/js/l/dropload/js/dropload.js"></script>
+<script src="../../common/seajs/sea.js"></script>
+<!--<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>-->
 <script>
-	seajs.use('/v2/shopping_center/market/js/src/index_ser_goList.js');
+//	seajs.use('/v2/shopping_center/market/js/src/index_ser_goList');
+    seajs.use('../js/src/index_ser_goList');
 </script>
 </html>
