@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><!--禁止页面缩放-->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!--苹果机设置全屏显示-->
+	<meta name="format-detection" content="telephone=no"><!--禁止识别电话号码-->
+	<meta name="format-detection" content="email=no"><!--禁止识别邮箱-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"><!--顶部状态栏背景色-->
+	<meta http-equiv="Cache-Control" content="no-cache"><!--设置缓存-->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta name="x5-orientation" content="portrait"><!--QQ浏览器私有强制竖屏-->
+	<meta name="screen-orientation" content="portrait"><!--UC浏览器私有强制竖屏-->
+	<meta name="HandheldFriendly" content="true"><!--针对不识别viewport的浏览器-->
+	<meta name="MobileOptimized" content="320"><!--微软老式浏览器-->
+	<meta name="msapplication-tap-highlight" content="no"><!--windows phone 点击无高光-->
+	<title>购物车列表页面</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<!--<link rel="stylesheet" href="../css/pro_de_cart.css">-->
+	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">-->
+</head>
+<style>
+	html,body{
+		background-color: #eeeeee;
+	}
+</style>
+<body >
+<!--导航start-->
+<div class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1" >
+	<div class="sh_margin_a sh_width_max ">
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 " >
+			<a href="javascript:history.go(-1);"class="sh_font_sz0">
+				<img src="../demo/pro_intrHead_left_a.png" 
+				alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10"/>
+			</a>
+		</div>
+		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28  " >购物车</div>
+		<div id="edit-btn" class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz32 sh_lingheight_90 sh_font_color6 e_chen_f"  >
+			编辑
+		</div>
+	</div>
+</div>
+<!--导航end-->
+<div class="sh_clear  sh_pd_top90 " id="pro_de_cartContainer" >
+	<div class="pro_de_cartContent sh_te_align_c sh_font_sz34">
+		<img src="../demo/loading.gif" alt="" class="loading sh_img_max sh_pd_top182"/>
+		 <span class="loading_p">.</span>
+	</div>
+</div>
+<div class="sh_pr_hg100"></div>
+<!--底部导航start-->
+<div class="sh_positon_f sh_left_0 sh_right_0 sh_bottom_0 sh_width_12 sh_z-index_10 sh_bg_color_1 sh_outline ">
+	<div class=" sh_clear sh_margin_a sh_width_max sh_positon_r">
+		<div class="sh_width_1 sh_float_l  sh_font_sz0 sh_pd_bottom30 sh_pd_top32  sh_font_color6 sh_lingheight_100 sh_te_align_r"><input type="checkbox"  class="check-all" /></div>
+		<div class="sh_width_3 sh_float_l  sh_font_sz32 sh_pd_bottom33 sh_pd_top34  sh_font_color6 sh_lingheight_100">
+			<div class="sh_width_10 sh_margin_a ">全选</div>
+		</div>
+		<div class="sh_width_4 sh_float_l sh_font_sz28 sh_pd_bottom33 sh_pd_top34  sh_font_color2 sh_lingheight_100 sh_ellipsis pro_de_cartShow">
+			合计：<em>￥</em><em id="pro_de_totalprice">0.00</em>
+		</div>
+		<div class="sh_width_4 sh_float_l sh_te_align_c sh_font_sz34 sh_pd_bottom33 sh_pd_top34 sh_fo_bg2 sh_font_color8 sh_lingheight_100 pro_de_cartShow sh_ellipsis">结算(<em id="pro_de_cartNum">0</em>)</div>
+		<div class="sh_width_4 sh_float_l sh_te_align_c sh_font_sz34 sh_pd_bottom33 sh_pd_top34 sh_fo_bg3 sh_font_color8 sh_lingheight_100 pro_de_cartOp" id="pro_de_cartSto">移入收藏夹</div>
+		<div class="sh_width_4 sh_float_l sh_te_align_c sh_font_sz34 sh_pd_bottom33 sh_pd_top34 sh_fo_bg2 sh_font_color8 sh_lingheight_100 pro_de_cartOp"  id="pro_de_cartDe">删除</div>
+	</div>
+</div>
+</body>
+<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>
+<script src="../../common/seajs/sea.js"></script>
+<!--<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>-->
+<script>
+	seajs.use('../js/src/pro_de_cart.js');
+//	   seajs.use('/v2/shopping_center/market/js/src/pro_de_cart.js');
+</script>
+</html>

@@ -1,0 +1,2 @@
+/*TMODJS:{"version":127,"md5":"cc8e3dd11f2f6df962e6343c4d835163"}*/
+define(function(require){return require("../template")("public/index_jxtj",function(a){"use strict";var b=this,c=(b.$helpers,b.$each),d=a.rowset,e=(a.value,a.a,b.$escape),f="";return c(d,function(a){f+=" ",""!=a.product_id&&(f+=' <li class="swiper-slide"> <a data-href="product?productId=',f+=e(a.product_id),f+='"> <p class="pic lazyload" data-original="',f+=e(a.thumb),f+='"></p> <p class="t">',f+=e(a.title),f+='</p> <p class="prc">&yen; ',f+=e(a.desc),f+="</p> </a> </li> "),f+=" "}),f+=" ",new String(f)})});

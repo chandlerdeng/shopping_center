@@ -1,0 +1,26 @@
+{
+  "status":200,
+  "data":{
+    "attr_id": "175",
+    "car_id": "579",
+    "catid": "01001797",
+    "deposit": "30;50",
+    "detail_id": "957",
+    "favourMoney": 0,
+    "ghl": "100",
+    "image": "/product/2016/03/10/thumbs/201603101749570_t4.png",
+    "level1Category": "01",
+    "line_money": 15,
+    "priceMethod": "SKU",
+    "price": "[[5, 17000],[ 10, 14000 ],[15, 12000]]",
+    "productId": "4694259",
+    "productKey": "发布测试",
+    "productName": "20160818发布测试",
+    "productNumber": "skdaiqiufang",
+    "property": "颜色：白色;尺码：M",
+    "quantity": "1",
+    "totalNum": 100,
+    "type": "2",
+    "unit": "公升"
+  }
+}

@@ -1,0 +1,16 @@
+1、index   首页
+2、index_ser_good.html 商品搜索页面
+3、index_ser_goodList.html  商品搜索页面对应-产品列表页面
+4、index_ser_shop.html 商铺搜索页面
+5、index_ser_shopList.html 商铺搜索页面对应-商铺列表
+6、pro_de_intr.html  产品详情页面
+7、pro_de_size.html  产品详情页面-对应规格选择页面
+8、pro_de_cart.html  产品详情页面-对应购物车页面
+9、p_center.html    个人中心页面
+10、p_center_noImg.html  个人中心未上传头像页面
+11、p_center_noLogin.html 个人中心未未登陆页面
+12、login.html  登陆页面
+13、login_bind_tel.html 绑定手机页面
+14、login_reg_acc.html  注册页面
+15、login_reset_code.html  密码重置页面
+16、p_collect.html  个人收藏页面
