@@ -2,10 +2,10 @@
  * Created by Administrator on 2016/8/24.
  */
 define(function(require, exports, module) {
+    var _c= require('./config');
     var hostmap=seajs.hostmap;//域名配置
     var loading= require('./loading');
-    var dropload= require('./dropload');
-    var _c= require('./config');
+    var dropload= require(_c.debug ? './dropload' : 'dropload');
     //require('dropload');//dropload
     //var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
     //$(function() {
@@ -29,7 +29,7 @@ define(function(require, exports, module) {
         }
     }
     //以上是获取浏览器url地址里面所带参数
-    var ajaxCount = 0, isIniting = true;
+    var isAjaxGoing = false, isIniting = true;
     var urlParams = {
         keyWord: value,
         _sort: null,
@@ -57,12 +57,14 @@ define(function(require, exports, module) {
             domNoData  : '<div class="dropload-noData sh_font_sz24 sh_te_align_c">暂无数据</div>'
         },
         loadUpFn : function(me){
+            if (isAjaxGoing) return;
             console.log("loadUpFn")
             urlParams.page = 1;
             refreshProdList();
         },
         loadDownFn : function(me){
-            console.log("loadDownFn")
+            if (isAjaxGoing) return;
+            
             if (isIniting) {
                 isIniting = false;
             } else {
@@ -72,17 +74,23 @@ define(function(require, exports, module) {
         }
     });
     function refreshProdList() {
+        if (isAjaxGoing) return;
         // debugger;
         loading.m_change();
-        var ajaxId = ++ajaxCount;
+        isAjaxGoing = true;
+        var params = {
+            keyWord: urlParams.keyWord,
+            sort: urlParams.sort,
+            page: urlParams.page
+        };
         $.ajax({
-            url: url,
+            url: url + (_c.debug ? "?" + _c.hash-- : ""),
             type: "get",
             contentType: _c.contentType,
-            data: urlParams,
+            data: params,
             dataType: _c.dataType,
             success:function(data){
-                if (ajaxId < ajaxCount) return; // 如果有新的ajax在执行, 放弃这次结果
+                isAjaxGoing = false;
                 var productList = data.data.productList;
                 var totalPage = data.data.totalPage;
 
@@ -107,12 +115,7 @@ define(function(require, exports, module) {
                             "</div>";
                     }
                 }
-                if(urlParams.page >= totalPage){
-                    // 锁定
-                    dropload.lock();
-                    dropload.noData();
-                }
-                if (!result) {
+                if (totalPage <= 0) {
                     prodList.html("<img src='http://res.csc86.com/v2/shopping_center/market/demo/index_serch_zero.png' alt='' class='sh_img_max'/>");
                     droploadDown.css("display","none");
                 }else if (urlParams.page > 1){
@@ -121,6 +124,15 @@ define(function(require, exports, module) {
                     prodList.html(result);
                 }
                 // 每次数据加载完，必须重置
+                dropload.resetload();
+                if(totalPage <= 0 || urlParams.page >= totalPage){
+                    // 锁定
+                    dropload.lock();
+                    dropload.noData();
+                }else {
+                    dropload.unlock();
+                    dropload.noData(false);
+                }
                 dropload.resetload();
             },
             error: function(xhr, type){
@@ -153,10 +165,11 @@ define(function(require, exports, module) {
                 }
                 this._sort = val;
             },
-            get: function () { return this._sort;}
+            get: function () { return (this._sort) ? this._sort : undefined;}
         }
     });
     tabZongHe.click(function () {
+        if (isAjaxGoing) return;
         if (urlParams.sort === null) return;
         urlParams.sort = null;
         urlParams.page = 1;
@@ -164,6 +177,7 @@ define(function(require, exports, module) {
         refreshProdList();
     });
     tabPrice.click(function () {
+        if (isAjaxGoing) return;
         if (urlParams.sort === 'price-asc') {
             urlParams.sort = 'price-desc';
         }else {

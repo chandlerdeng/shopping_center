@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     module.exports = {
         debug: isDebug,
         dataType: isDebug ? 'json' : 'jsonp',
-        contentType: "application/json; charset=utf-8"
-
+        contentType: "application/json; charset=utf-8",
+        hash: Date.now()
     }
 })
