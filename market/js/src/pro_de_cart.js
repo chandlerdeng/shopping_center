@@ -3,13 +3,13 @@
  */
 
 define(function (require, exports, module) {
-    $.debug = false;
+    $.debug = true;
     var ShopCart = require("./shopcart");
     var shopCart;
     var loading = require("./loading");
     var formatNum = require("./formatNum");
     var isLogin_stu = require('//api.csc86.com/notify/count/all/?callback=define');
-    var fastclick = require('fastclick');//fastclick
+    // var fastclick = require('fastclick');//fastclick
     //$(function() {
     //    FastClick.attach(document.body);
     //});
@@ -75,7 +75,7 @@ define(function (require, exports, module) {
                                                 "<div class='sh_float_l sh_ellipsis sh_width_4 sh_font_sz24 sh_lingheight_100 sh_pd_top15 sh_pd_bottom15'>购买数量:</div>" +
                                                 "<div class=' sh_float_r sh_width_260 sh_pr_hg50 sh_bor_a_2 sh_border_radius_5 '>" +
                                                 "<div " + dataStr + " class='sh_width_18 sh_float_l sh_pr_hg50  sh_lingheight_48 good_size_min  sh_bor_right_2 disabled' ></div>" +
-                                                "<input disabled type='text' " + dataStr + " value='" + sp.num + "' class='input-shangpin-num text_box sh_width_61 sh_font_sz24 sh_te_align_c sh_float_l  sh_pr_hg50 sh_v_middle'/>" +
+                                                "<input disabled type='number' " + dataStr + " value='" + sp.num + "' class='input-shangpin-num text_box sh_width_61 sh_font_sz24 sh_te_align_c sh_float_l  sh_pr_hg50 sh_v_middle'/>" +
                                                 "<div " + dataStr + " class='sh_width_18 sh_float_l sh_pr_hg50 sh_lingheight_48 good_size_plus  sh_bor_left_2 disabled'></div>" +
                                                 "</div>" +
                                                 "</div>" +
@@ -288,13 +288,13 @@ define(function (require, exports, module) {
                 $els.chkAll = $(".check-all").click(function () {//全选
                     $els.list.find(".chkbox-shangpin" + (this.checked ? ":not(:checked)" : ":checked")).trigger("click");
                 });
-                $els.list.delegate(".chkbox-comp", "click", function () {
+                $els.list.find(".chkbox-comp").click(function () {
                     var el = $(this), compId = el.data("compId");
 
                     getSpChkBoxsOfAComp(el).filter(this.checked ? ":not(:checked)" : ":checked").trigger("click");
 
                 });
-                $els.list.delegate(".chkbox-shangpin", "click", function () {
+                $els.list.find(".chkbox-shangpin").click(function () {
                     var el = $(this), compId = el.data("compId");
                     var spGrpId = el.data("spGrpId");
                     var spId = el.data("detailId");
@@ -305,18 +305,18 @@ define(function (require, exports, module) {
                     refreshSpPrice(getElmOfASp($(this), ".input-shangpin-num"), "click-spchkbox");
                     toggleFavDel(!!shopCart.SpSelcNum);
                 });
-                $els.list.delegate(".chkbox-in-list", "click", function () {
+                $els.list.find(".chkbox-in-list").click(function () {
                     updateTotalPrice();
                 });
-                $els.list.delegate(".input-shangpin-num", "change", function () {
+                $els.list.find(".input-shangpin-num").change( function () {
                     refreshSpPrice($(this), "input-change");
                 });
-                $els.list.delegate(".good_size_min", "click", function () {
+                $els.list.find(".good_size_min").click(function () {
                     //alert(1);
                     if ($(this).hasClass("disabled")) return;
                     refreshSpPrice($(this), $(this).hasClass("good_size_plus") ? "+1" : "-1");
                 });
-                $els.list.delegate(".good_size_plus", "click", function () {
+                $els.list.find(".good_size_plus").click(function () {
                     //alert(1);
                     if ($(this).hasClass("disabled")) return;
                     refreshSpPrice($(this), $(this).hasClass("good_size_plus") ? "+1" : "-1");

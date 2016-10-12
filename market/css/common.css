@@ -312,7 +312,7 @@ input::-webkit-input-placeholder { vertical-align: middle;line-height: normal;co
 input::-moz-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
 input:-ms-input-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
 input:-moz-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
-input[type=text],input[type=button],input[type=password]{-webkit-appearance: none;outline: none;border: none;box-sizing: border-box;font-family: 'Microsoft Yahei', '微软雅黑',sans-serif}/*iphone及ipad下输入框默认内阴影*/
+input[type=number],input[type=text],input[type=button],input[type=password]{-webkit-appearance: none;outline: none;border: none;box-sizing: border-box;font-family: 'Microsoft Yahei', '微软雅黑',sans-serif}/*iphone及ipad下输入框默认内阴影*/
 /*图片自适应及图片大小设置*/
 .sh_img_max{ display: block;margin: auto; max-width: 100%;}
 .index_choose{max-height: 0.33rem}
