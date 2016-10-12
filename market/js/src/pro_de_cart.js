@@ -9,7 +9,7 @@ define(function (require, exports, module) {
     var loading = require("./loading");
     var formatNum = require("./formatNum");
     var isLogin_stu = require('//api.csc86.com/notify/count/all/?callback=define');
-    //var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+    var fastclick = require('fastclick');//fastclick
     //$(function() {
     //    FastClick.attach(document.body);
     //});
@@ -29,7 +29,7 @@ define(function (require, exports, module) {
                                 if (!data.data.shoppingCar || data.data.shoppingCar.length == 0) {
                                     str =
                                         "<div class='pro_de_cartContent' class='sh_te_align_c sh_font_sz0'>" +//当购物车内容为空时
-                                             "<img src='../demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
+                                             "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
                                         "</div>";//如果没有数据或者长度为0时
                                     $("#pro_de_cartContainer").html(str);
                                     return;
@@ -113,15 +113,15 @@ define(function (require, exports, module) {
                 } else {//没有登录状态
                     var blank =
                         "<div class='pro_de_cartContent' class=' sh_font_sz0 sh_lingheight_100'>" +//动态获取内容开始开始"
-                            "<img src='../demo/pro_de_cart_nLogin.png' alt=''class='sh_margin_a  sh_img_max'/>" +
+                            "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_nLogin.png' alt=''class='sh_margin_a  sh_img_max'/>" +
                             "<a href='http://res.csc86.com/v2/shopping_center/market/html/login.html'>" +
-                                "<img src='../demo/pro_de_cart_noLoginB.png' alt=''class='sh_margin_a  sh_img_max' style='height: 0.88rem'/>" +
+                                "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_noLoginB.png' alt=''class='sh_margin_a  sh_img_max' style='height: 0.88rem'/>" +
                             "</a>" +
                         "</div>";
                     $("#pro_de_cartContainer").html(blank);
                 }
             }
-            isLogin($.debug ? "../../market/json/package_2.json" : "http://m.csc86.com/carDetail");//测试用
+            isLogin($.debug ? "../../market/json/pro_de_cart.json" : "http://m.csc86.com/carDetail");//测试用
             function enableEditASp($el, flag) {
                 var pars = $el.parentsUntil(".pro_de_cart_group");
                 var classMtd = (flag) ? "removeClass" : "addClass";
@@ -257,7 +257,7 @@ define(function (require, exports, module) {
                                 var str=""
                                 str =
                                     "<div class='pro_de_cartContent' class='sh_te_align_c sh_font_sz0'>" +//当购物车内容为空时
-                                        "<img src='../demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
+                                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
                                     "</div>";//如果没有数据或者长度为0时
                                 $("#pro_de_cartContainer").html(str);
                                 return;
@@ -343,10 +343,10 @@ define(function (require, exports, module) {
                     }
                 });
                 $els.addFavr.click(function () {//移入收藏夹功能
-                    addFavOrDel1.call(this, $.debug ? "../../market/json/package.json" : "http://m.csc86.com/batchMoveToFavorites");
+                    addFavOrDel1.call(this, $.debug ? "../../market/json/pro_de_cart.json" : "http://m.csc86.com/batchMoveToFavorites");
                 });
                 $els.delete.click(function () {//购物车删除功能
-                    addFavOrDel1.call(this, $.debug ? "../../market/json/package.json" : "http://m.csc86.com/deleteCarLine", "delete");
+                    addFavOrDel1.call(this, $.debug ? "../../market/json/pro_de_cart.json" : "http://m.csc86.com/deleteCarLine", "delete");
                 });
             }
         },

@@ -2,12 +2,10 @@
  * Created by Administrator on 2016/8/24.
  */
 define(function(require, exports, module) {
-    var _c= require('./config');
+    var _c= require('./index_ser_goListTest');
     var hostmap=seajs.hostmap;//域名配置
-    var loading= require('./loading');
-    var dropload= require(_c.debug ? './dropload' : 'dropload');
-    //require('dropload');//dropload
-    //var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+    var dropload= require('dropload');
+    var fastclick = require("fastclick");//fastclick
     //$(function() {
     //    FastClick.attach(document.body);
     //});
@@ -28,10 +26,11 @@ define(function(require, exports, module) {
             showStr+="name="+name+" value="+value+"<br />";//测试是否获取到url地址里面参数
         }
     }
+    $("header").find(".tittle").html(decodeURI(value));  //标题栏加载数据
     //以上是获取浏览器url地址里面所带参数
     var isAjaxGoing = false, isIniting = true;
     var urlParams = {
-        keyWord: value,
+        keyWord:decodeURI(value),
         _sort: null,
         page: 1
     }
@@ -64,7 +63,7 @@ define(function(require, exports, module) {
         },
         loadDownFn : function(me){
             if (isAjaxGoing) return;
-            
+
             if (isIniting) {
                 isIniting = false;
             } else {
@@ -76,7 +75,6 @@ define(function(require, exports, module) {
     function refreshProdList() {
         if (isAjaxGoing) return;
         // debugger;
-        loading.m_change();
         isAjaxGoing = true;
         var params = {
             keyWord: urlParams.keyWord,
@@ -93,31 +91,32 @@ define(function(require, exports, module) {
                 isAjaxGoing = false;
                 var productList = data.data.productList;
                 var totalPage = data.data.totalPage;
-
+                   console.log(data);
                 var result='';
                 if (productList.length > 0) {
-                    
+
                     for(var j=0,len=productList.length;j<len; j++){
                         result +=
                             "<div class='sh_clear  sh_pd_top30  sh_pd_bottom30 sh_bor_top_1 sh_bg_color_1'>"+
-                            "<div class='sh_width_92 sh_margin_a  sh_clear '>"+
-                            "<div class='sh_width_4 sh_float_l sh_lingheight_100  sh_font_sz0 '>"+
-                            "<a href='http://m.csc86.com/search/product_detail.ftl?productId="+productList[j].productId+"'  data-href='"+productList[j].productId+"'>"+"<img src='"+productList[j].picUrl+"' class='index_ser_list' alt=''/>"+"</a>"+
-                            "</div>"+
-                            "<div class='sh_width_8 sh_float_l sh_wor_space  sh_positon_r sh_font_sz0'>"+
-                            "<a href='http://m.csc86.com/search/product_detail.ftl?productId="+productList[j].productId+"'  data-href='"+productList[j].productId+"'>"+"<span class='sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10 sh_font_color5'>"+productList[j].title+"</span>"+"</a>"+
-                            "<span class='sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10'>"+
-                            "<em class='sh_font_color2 '>￥</em>"+"<em class='sh_font_color2'>"+productList[j].price+"</em>"+"<em class='sh_font_color2'>起</em>"+
-                            "</span>"+
-                            "<div class='sh_font_sz24 sh_font_color7 sh_lingheight_100'>"+productList[j].province+productList[j].city+"</div>"+
-                            "</div>"+
-                            "</div>"+
+                                "<div class='sh_width_92 sh_margin_a  sh_clear '>"+
+                                    "<div class='sh_width_4 sh_float_l sh_lingheight_100  sh_font_sz0 '>"+
+                                         "<a href='http://m.csc86.com/search/product_detail.ftl?productId="+productList[j].productId+"'  data-href='"+productList[j].productId+"'>"+"<img src='"+productList[j].picUrl+"' class='index_ser_list' alt=''/>"+"</a>"+
+                                    "</div>"+
+                                    "<div class='sh_width_8 sh_float_l sh_wor_space  sh_positon_r sh_font_sz0'>"+
+                                         "<a href='http://m.csc86.com/search/product_detail.ftl?productId="+productList[j].productId+"'  data-href='"+productList[j].productId+"'>"+"<span class='sh_di_block sh_font_sz32 sh_lingheight_1_5 sh_pd_bottom10 sh_font_color5'>"+productList[j].title+"</span>"+"</a>"+
+                                        "<span class='sh_di_block sh_font_sz28 sh_lingheight_100 sh_pd_bottom10 sh_pd_top10'>"+
+                                             "<em class='sh_font_color2 '>￥</em>"+"<em class='sh_font_color2'>"+productList[j].price+"</em>"+"<em class='sh_font_color2'>起</em>"+
+                                        "</span>"+
+                                         "<div class='sh_font_sz24 sh_font_color7 sh_lingheight_100'>"+productList[j].province+productList[j].city+"</div>"+
+                                    "</div>"+
+                                "</div>"+
                             "</div>";
                     }
                 }
                 if (totalPage <= 0) {
                     prodList.html("<img src='http://res.csc86.com/v2/shopping_center/market/demo/index_serch_zero.png' alt='' class='sh_img_max'/>");
-                    droploadDown.css("display","none");
+                    $(".pro_list_container").html("<img src='http://res.csc86.com/v2/shopping_center/market/demo/index_serch_zero.png' alt='' class='sh_img_max'/>");
+                    //droploadDown.css("display","none");
                 }else if (urlParams.page > 1){
                     prodList.append(result);
                 }else {
@@ -136,15 +135,15 @@ define(function(require, exports, module) {
                 dropload.resetload();
             },
             error: function(xhr, type){
-                alert('Ajax error!');
+                alert('请求数据错误');
                 // 即使加载出错，也得重置
                 dropload.resetload();
             }
         });
     }
     // bind events
-    Object.defineProperties(urlParams, { 
-        "sort": { 
+    Object.defineProperties(urlParams, {
+        "sort": {
             set: function (val) {
                 priceSort.removeClass('active');
                 switch(val) {
@@ -186,12 +185,4 @@ define(function(require, exports, module) {
         urlParams.page = 1;
         refreshProdList();
     });
-
-
-    var order_by={
-        in_data:function(){           //标题栏加载数据
-            $("header").find(".tittle").html(value)
-        }
-    };
-    order_by.in_data();
 });

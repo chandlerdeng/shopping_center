@@ -5,7 +5,7 @@ define(function (require, exports, module) {
     require('swiper');//滑动插件
     var formatNum=require('http://res.csc86.com/f=v2/shopping_center/market/js/src/formatNum');
     var isLogin = require('//api.csc86.com/notify/count/all/?callback=define');
-    //var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+    var fastclick = require("fastclick");//fastclick
     //$(function() {
     //    FastClick.attach(document.body);
     //});
@@ -134,13 +134,29 @@ define(function (require, exports, module) {
                                 }
                                 _hide()
                             }else{
-                                alert("添加失败");
-                                _hide()
+                                $("#msg-content").html("添加购物车失败").show()
+                                setTimeout(function(){
+                                    $("#msg-content").hide();
+                                    _hide()
+                                },2000)
                             }
 
                         },"jsonp");
                     }else{
-                      alert("跳转到订单页面");
+                      console.log("跳转到订单页面");
+                        $.post("http://m.csc86.com/addShoppingCar",{"buyerId":123,
+                            "productId": shangPin.id,
+                            "sellerId":shangPin.sellerId,
+                            "productDetailList":[{
+                                "num":shangPin._num,"colorId":shangPin.specs.color,"sizeId":shangPin.specs.size
+                            }]}, function(data) {
+                            if(data.status==200){
+                                console.log(data);
+                                //_hide()
+                            }else{
+
+                            }
+                        },"jsonp");
                     }
                 } else {
                     window.location.href = "http://res.csc86.com/v2/shopping_center/market/html/login.html"

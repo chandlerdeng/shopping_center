@@ -3,7 +3,7 @@
  */
 define(function (require, exports, module) {
 	var isLogin_stu = require('//api.csc86.com/notify/count/all/?callback=define');
-	var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+	var fastclick = require("fastclick");//fastclick
 	$(function() {
 	    FastClick.attach(document.body);
 	});

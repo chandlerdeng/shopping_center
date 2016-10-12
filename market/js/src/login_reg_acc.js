@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/9/7.
  */
 define(function (require, exports, module) {
-    var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+    var fastclick = require("fastclick");//fastclick
     $(function() {
         FastClick.attach(document.body);
     });
@@ -211,7 +211,7 @@ define(function (require, exports, module) {
                         $("#msg-content").html("注册成功！").show();
                         setTimeout(function(){
                             window.location.href="http://res.csc86.com/v2/shopping_center/market/html/login.html"
-                        },4000)
+                        },2000)
 
                     }
                 },"jsonp");

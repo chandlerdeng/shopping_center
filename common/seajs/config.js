@@ -9,9 +9,7 @@ seajs.config({
 		'picLazyLoad':'common/js/l/picLazyLoad/zepto.picLazyLoad.min.js',
 		'dropload':'common/js/l/dropload/js/dropload.min.js',
 		'debug':'common/js/l/debug/debug.min.js',
-		'fastclick':'common/js/l/fastclick/fastclick.js',
-		'iscroll':'common/js/l/pullrefresh/iscroll.js',
-		'pullToRefresh':'common/js/l/pullrefresh/pullToRefresh.js'
+		'fastclick':'common/js/l/fastclick/fastclick.js'
 	},
 	// 路径配置
 	paths: {

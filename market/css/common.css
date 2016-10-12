@@ -120,7 +120,7 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 .sh_bg_color_3{background-color: #eeeeee;}
 .sh_bg_color_4{background-color: #5fa3e7;}
 .sh_bg_color_5{background-color: red;}
-/*.sh_bg_color_6{background-color: #8b8db1;}1*/
+.sh_bg_color_6{background-color: #9088aa;}
 .sh_bg_color_7{background-color: #f5f5f5;}
 /*.sh_bg_color_8{background-color:#f3f3f3;}1*/
 .sh_bg_color_9{background-color:#eeeeee;}
@@ -228,6 +228,7 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 .sh_pd_bottom32{padding-bottom: 0.32rem}
 .sh_pd_bottom33{padding-bottom: 0.33rem}
 .sh_pd_bottom40{padding-bottom: 0.4rem}
+.sh_pd_bottom125{ padding-bottom: 1.25rem}
 .sh_pd_left8{padding-left: 0.08rem}
 .sh_pd_left14{padding-left: 0.14rem}
 /*.sh_pd_left10{padding-left: 0.10rem}1*/
@@ -242,6 +243,7 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 /*margin*/
 .sh_margin_a{margin: auto}
 .sh_margin_r{margin-right: 0}
+.sh_margin_r_3{margin-right: 0.3rem}
 .sh_margin_b_44{margin-bottom:0.44rem}
 .sh_margin_b_70{margin-bottom:0.7rem}
 .sh_margin_t_20{margin-top:0.2rem}
@@ -276,10 +278,11 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 .sh_width_2{width: 16.66%}
 .sh_width_1{width: 8.33%}
 .sh_width_18{width:18%}
+.sh_width_30{width:30%}
 /*.sh_width_30{width: 30.3%}1*/
 .sh_width_64_4{width:64.4%}
 /*.sh_width_8_8{width:8.8%}1*/
-.sh_width_61{width:61%}
+.sh_width_61{width:61.66%}
 .sh_width_162{width:1.62rem}
 .sh_width_260{width:2.6rem}
 .sh_pr_hg18_92{height:18.92%;}
@@ -325,7 +328,6 @@ input[type=text],input[type=button],input[type=password]{-webkit-appearance: non
 /*.swiper-wrapper img{height: 2.1rem}*/
 .index_sh_img img{height: 2.1rem}
 /*index页面end*/
-.pro_intrHead_left_a,.index_left_a{max-height: 0.32rem}
 .index_ser_bg,.index_ser_goo{background: none}
 .index_ser_circle{max-height: 0.32rem}
 /*index_ser_good页面end*/
@@ -344,9 +346,9 @@ input[type=text],input[type=button],input[type=password]{-webkit-appearance: non
 .pers_ctr{max-width: 0.62rem;max-height: 0.62rem}
 .pers_ctr_arbg{background: url('../demo/pro_intrSize_choose.png') no-repeat right center;background-size: 0.18rem 0.3rem}
 .pers_ctr_banner{background:url('../demo/pers_ctr_banner.png') no-repeat center ;background-size:cover}
-.pers_ctr_input{max-height:100%}
+.pers_ctr_input{height:100%}
 /*p_center页面*/
-.sh_img_max{ display: block;margin: auto; max-width: 100%;}
+.sh_img_max{display: block;margin: auto; max-width: 100%;}
 .pro_intrHead_left_a,.index_left_a{max-height: 0.32rem}
 .pro_intrStore_f{max-height: 0.98rem}/*详情页底部收藏购物车按钮*/
 .pro_intrSize_choose{max-height: 0.30rem}/*详情页规格数量选择*/
@@ -383,7 +385,6 @@ input[type=checkbox], input[type=radio]{
 	position: relative;
 	border-radius: 50%;
 	cursor: pointer;
-	/*outline: 1px solid red;*/
 }
 input[type=checkbox]:active, input[type=radio]:active {
 	border-color: #4da4fe;
@@ -411,18 +412,27 @@ input[type=checkbox]:focus {
 }
 /*pro_de_cart页面end*/
 .pers_order_ar{width: 0.4rem;height: 0.3rem}
-/*pers_order页面end*/
+/*p_order页面end*/
 .save_store_img{max-width:1.98rem;max-height: 1.98rem}
 .save_store_imgh{height:1.98rem}
 .save_store_s{width:0.4rem;height:0.4rem}
 /*收藏页面end*/
 .edit_addr{width: 0.33rem;height: 0.4rem}
-/*edit_addr页面*/
+.edit_addr_citybg{background: url('../demo/pro_intrSize_choose.png') no-repeat right center;background-size: 0.18rem}
+/*con_order_ediAddr页面*/
 .con_order_noAddr{width: 0.4rem;height: 0.35rem}
 .con_order_noAddrBg{background: url("../demo/con_order_noAddrBg.png") repeat-x center bottom;background-size: 100% 0.1rem}
 /*con_order_h_addr页面end*/
 .sh_full_scr{width: 100%;height: 100%;position: fixed;left: 0;right:0;background-color:gainsboro;background: rgba(189, 189, 189, 0.46);z-index: 999;top: 0;display: none}
 /*遮罩设置con_order_de_addrNoti页面end*/
+.addr_list{max-height: 0.4rem;max-width: 0.4rem}
+.addr_list_plus{background: url("../demo/addr_list_plus.png") no-repeat left center;background-size: 0.34rem }
+/*con_order_addrList页面end*/
+
+
+
 
 /*垂直高度设置*/
 .sh_dispfix{height:100%;display: flex;  justify-content: center;  align-items: center;}
+/*订单确认*/
+.sh_imgbg{background:url(../demo/_dizhi.png) repeat left; height: 0.1rem;}

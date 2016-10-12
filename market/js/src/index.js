@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
 	require('swiper');//滑动插件
-	var fastclick = require("http://res.csc86.com/f=v2/shopping_center/market/js/src/fastclick");
+	var fastclick = require("fastclick");//fastclick
 	$(function() {
 	    FastClick.attach(document.body);
 	});
@@ -70,5 +70,4 @@ define(function(require, exports, module) {
 	init.index.shop_goo_ex();
 	init.index.show_img();
 	init.index._shop_cart();
-
 });

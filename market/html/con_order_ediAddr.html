@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="background-color: #fff">
+<html>
 <head lang="en">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><!--禁止页面缩放-->
@@ -14,68 +14,76 @@
 	<meta name="HandheldFriendly" content="true"><!--针对不识别viewport的浏览器-->
 	<meta name="MobileOptimized" content="320"><!--微软老式浏览器-->
 	<meta name="msapplication-tap-highlight" content="no"><!--windows phone 点击无高光-->
-	<title>商品详情名称</title>
-	<link rel="stylesheet" href="../../common/js/l/swiper/css/swiper.min.css">
-	<link rel="stylesheet" href="../css/pro_intr.css">
+	<title>编辑收货地址</title>
+	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">-->
+	<link rel="stylesheet" href="../css/common.css">
 </head>
-<body style="background-color: #fff">
+<body>
 <!--导航start-->
-<div class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1" >
+<header class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1" >
 	<div class="sh_margin_a sh_width_max ">
-		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 " >
-			<img src="../demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10"/>
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 ">
+			<a href="javascript:history.go(-1);" class="sh_font_sz0">
+				<img src="http://res.csc86.com/v2/shopping_center/market/demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">
+			</a>
 		</div>
-		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28 sh_ellipsis">编辑收获地址</div>
-		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 " >
-			<img src="../demo/edit_addr_d.png" alt="" class="sh_v_middle edit_addr sh_pd_bottom10 sh_pd_top10"/>
+		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28 ">编辑收货地址</div>
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 edit_addr_dust">
+			<img src="http://res.csc86.com/v2/shopping_center/market/demo/edit_addr_d.png" alt="" class="sh_v_middle edit_addr sh_pd_bottom10 sh_pd_top10"/>
 		</div>
 	</div>
-</div>
+</header>
 <!--导航end-->
 <div class="sh_clear sh_pd_top90 ">
-	<form action="" method="" class="sh_font_sz24 sh_font_color13 sh_ellipsis">
+	<form action="" method="" class="sh_font_sz28 sh_font_color13 sh_ellipsis">
 		 <div class="sh_bor_bottom_1">
 			 <div class="sh_margin_a sh_width_92">
 				 <div class="sh_pd_bottom30 sh_pd_top30 sh_lingheight_100">
-					 <label for="" class="sh_pd_right14">收&nbsp;货&nbsp;人</label><input type="text" value=""class="sh_font_sz24 sh_font_color13 sh_width_6"/>
+					 <label for="" class="sh_di_inblock sh_width_2 ">收&nbsp;货&nbsp;人</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10"/>
 				 </div>
 			 </div>
 		 </div>
 		<div class="sh_bor_bottom_1">
 			<div class="sh_margin_a sh_width_92">
 				<div class="sh_pd_bottom30 sh_pd_top30">
-					<label for="">手机号码</label><input type="text" value=""class="sh_font_sz24 sh_font_color13 sh_width_6"/>
+					<label for="" class="sh_di_inblock sh_width_2 ">手机号码</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10"/>
 				</div>
 			</div>
 		</div>
-			<div class="sh_clear sh_font_500  line_hg1_5 sh_box-sizing_C sh_bor_bottom_1 sh_pd_top30 sh_pd_bottom30">
-				<div class="sh_width_92 sh_margin_a">
-					<div  class="sh_width_92  sh_margin_a sh_width_10 sh_float_l sh_lingheight_100 sh_font_sz24 sh_ellipsis">所在地区</div>
-					<div  class="sh_width_92  sh_margin_a sh_width_2 sh_float_l sh_te_align_r  sh_lingheight_100 sh_font_sz0"><img src="../demo/pro_intrSize_choose.png" alt="" class="pro_intrSize_choose sh_v_middle"/></div>
-				</div>
+		<div class="sh_clear  line_hg1_5 sh_box-sizing_C sh_bor_bottom_1 sh_pd_top30 sh_pd_bottom30 edit_addr_cityPar">
+			<div class="sh_width_92 sh_margin_a edit_addr_citybg">
+				<label for="" class="sh_di_inblock sh_width_2 ">所在地区</label><input type="text" value="" readonly class="sh_font_sz28 sh_font_color13 sh_width_8 edit_addr_cityCt" style="outline: 1px solid red"/>
 			</div>
+		</div>
 		<div class="sh_bor_bottom_1">
 			<div class="sh_margin_a sh_width_92">
 				<div class="sh_pd_bottom30 sh_pd_top30">
-					<label for="">详细地址</label><input type="text" value=""class="sh_font_sz24 sh_font_color13 sh_width_6 "/>
+					<label for="" class="sh_di_inblock sh_width_2">详细地址</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10 "/>
 				</div>
 			</div>
 		</div>
 	</form>
 </div>
 <!--尾部导航start-->
-<div class="sh_positon_f sh_left_0 sh_right_0 sh_bottom_0 sh_width_12 sh_z-index_10 sh_bg_color_1 ">
-	<div class=" sh_margin_a sh_width_max sh_te_align_c">
-		<div class="sh_width_12 sh_font_sz32 sh_pd_bottom33 sh_pd_top34 sh_bg_color_4 sh_font_color8 sh_lingheight_100">
-			保存并使用
+<footer class="sh_positon_f sh_left_0 sh_right_0 sh_bottom_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1 edi_addr_save" >
+	<div class="sh_margin_a sh_width_max sh_te_align_c">
+		<div  class=" disabled sh_font_sz34 sh_pd_bottom33 sh_pd_top34 sh_bg_color_4 sh_font_color8 sh_lingheight_100 edi_addr_saveBtn"  >
+			保存
+		</div>
+	</div>
+</footer>
+<div class="sh_positon_f sh_left_0 sh_right_0 sh_bottom_0 sh_width_12 sh_z-index_10" style="bottom:25%;">
+	<div class=" sh_margin_a sh_width_max">
+		<div class="sh_te_align_c sh_width_6 sh_margin_a sh_font_sz20 sh_font_color8 sh_border_radius_5 login_reg_acc_tip sh_pd_bottom20 sh_pd_top20"  id="msg-content" style="background-color: rgba(0, 0, 0, 0.37);display: none">
 		</div>
 	</div>
 </div>
 </body>
-<script src="http://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js"></script>
-<script src="../js/src/auto_choose.js"></script>
+<!--<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>-->
+<!--<script src="../../common/seajs/sea.js"></script>-->
+<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>
 <script>
-	//		seajs.use('../js/src/index');
+	seajs.use('/v2/shopping_center/market/js/src/con_order_addrList.js');
+	//    seajs.use('../js/src/con_order_addrList');
 </script>
 </html>
