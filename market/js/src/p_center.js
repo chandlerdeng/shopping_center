@@ -25,15 +25,7 @@ define(function(require, exports, module) {
                 p_c_jump(".p_center_addr","http://res.csc86.com/v2/shopping_center/market/html/con_order_addrList.html");//地址管理页面跳转
                 p_c_jump(".p_center_acc","");//个人账户设置跳转
            function _isLogin_center(conele){
-               var str=
-                   "<div class='sh_pr_hg18_92'></div>"+
-                    "<div class='sh_te_align_c sh_pr_hg52_46'>"+
-                        "<div class='sh_te_align_c sh_margin_a sh_ellipsis sh_border_radius_50 sh_pr_hg162 sh_width_162 sh_bor_a_10'>"+
-                          //"<img src='../demo/save_store1.png' alt='' class='pers_ctr_input sh_img_max'/>"+
-                            "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pers_ctr_noimg.png' alt='' class='pers_ctr_input sh_img_max'/>"+
-                         "</div>"+
-                   "</div>"+
-                   "<div class='sh_te_align_c sh_font_color8 sh_wor_space sh_ellipsis sh_lingheight_100 sh_pr_hg28_62 sh_font_sz30'>"+isLogin.data.username.substring(0,3)+'****'+isLogin.data.username.substring(8,11)+"</div>";
+
                var res=
                "<div class='sh_pr_hg37_84'></div>"+
                "<div class='sh_clear  sh_margin_a sh_pr_hg18_92 sh_width_64'>"+
@@ -46,9 +38,57 @@ define(function(require, exports, module) {
                "</div>"+
                "<div class='sh_pr_hg43_24'></div>";
                if (isLogin.status){
-                   $(conele).html(str)
+                   $.post("http://m.csc86.com/member/getUserInfo",{
+                       }, function(data) {
+                       console.log(data);
+                       var str="";
+                       if(data.status==200){
+                           if(data.hasOwnProperty('data')){
+                               if(data.data.hasOwnProperty('userInfo')){
+                                   str+=
+                                       "<div class='sh_pr_hg18_92'></div>"
+                                   if(data.data.userInfo.hasOwnProperty('imgUrl')&&!!data.data.userInfo.imgUrl){
+                                       str+=
+                                           "<div class='sh_te_align_c sh_pr_hg52_46'>"+
+                                               "<div class='sh_te_align_c sh_margin_a sh_ellipsis sh_border_radius_50 sh_pr_hg162 sh_width_162 sh_bor_a_10'>"+
+                                                    "<img src='http://img.csc86.com"+data.data.userInfo.imgUrl+"' alt='' class='pers_ctr_input sh_img_max'/>"+
+                                               "</div>"+
+                                           "</div>"
+                                   }else{
+                                       str+=
+                                           "<div class='sh_te_align_c sh_pr_hg52_46'>"+
+                                               "<div class='sh_te_align_c sh_margin_a sh_ellipsis sh_border_radius_50 sh_pr_hg162 sh_width_162 sh_bor_a_10'>"+
+                                                    "<img src='http://res.csc86.com/v2/shopping_center/market/demo/p_center_noImg.png' alt='' class='pers_ctr_input sh_img_max'/>"+
+                                               "</div>"+
+                                           "</div>"
+                                   }
+                                   if(isNaN(data.data.userInfo.userName)){
+                                       str+="<div class='sh_te_align_c sh_font_color8 sh_wor_space sh_ellipsis sh_lingheight_100 sh_pr_hg28_62 sh_font_sz30'>"+data.data.userInfo.userName+"</div>";
+                                   }else{
+                                       str+="<div class='sh_te_align_c sh_font_color8 sh_wor_space sh_ellipsis sh_lingheight_100 sh_pr_hg28_62 sh_font_sz30'>"+isLogin.data.username.substring(0,3)+'***'+data.data.userInfo.userName.substring(8,11)+"</div>";
+                                   }
+                                   $(conele).html(str);
+                               }
+                           }else{
+                               str+=
+                                   "<div class='sh_pr_hg18_92'></div>"+
+                                   "<div class='sh_te_align_c sh_pr_hg52_46'>"+
+                                       "<div class='sh_te_align_c sh_margin_a sh_ellipsis sh_border_radius_50 sh_pr_hg162 sh_width_162 sh_bor_a_10'>"+
+                                             "<img src='http://res.csc86.com/v2/shopping_center/market/demo/p_center_noImg.png' alt='' class='pers_ctr_input sh_img_max'/>"+
+                                       "</div>"+
+                                   "</div>";
+                               if(isNaN(isLogin.data.username)){
+                                   str+="<div class='sh_te_align_c sh_font_color8 sh_wor_space sh_ellipsis sh_lingheight_100 sh_pr_hg28_62 sh_font_sz30'>"+isLogin.data.username+"</div>";
+                               }else{
+                                   str+="<div class='sh_te_align_c sh_font_color8 sh_wor_space sh_ellipsis sh_lingheight_100 sh_pr_hg28_62 sh_font_sz30'>"+isLogin.data.username.substring(0,3)+'***'+isLogin.data.username.substring(8,11)+"</div>";
+                               }
+                               $(conele).html(str);
+                           }
+                       }
+
+                   },"jsonp");
                }else{
-                   $(conele).html(res)
+                   $(conele).html(res);
                    $(".p_center_login").on('click',function(){
                        window.location.href="http://res.csc86.com/v2/shopping_center/market/html/login.html"
                    })

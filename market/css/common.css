@@ -4,81 +4,81 @@ html,body{max-width:750px;margin: auto;}
 /*各大字体自适应调整*/
 @media (max-width: 239px){
 	html{
-		font-size: 32px;
+		font-size: 32px !important;
 	}
 }
 @media (min-width: 240px){
 	html{
-		font-size: 32px;
+		font-size: 32px !important;
 	}
 }
 @media (min-width: 320px){
 	html{
-		font-size: 42.666666666666664px;
+		font-size: 42.666666666666664px !important;
 	}
 }
 @media (min-width: 360px){
 	html{
-		font-size: 48px;
+		font-size: 48px !important;
 	}
 }
 @media (min-width: 375px){
 	html{
-		font-size: 50px;
+		font-size: 50px !important;
 	}
 }
 @media (min-width: 384px){
 	html{
-		font-size: 51.2px;
+		font-size: 51.2px !important;
 	}
 }
 @media (min-width: 400px){
 	html{
-		font-size: 53.333333333333336px;
+		font-size: 53.333333333333336px !important;
 	}
 }
 @media (min-width: 412px){
 	html{
-		font-size:54.93333333333333px;
+		font-size:54.93333333333333px !important;
 	}
 }
 @media (min-width: 414px){
 	html{
-		font-size:55.2px;
+		font-size:55.2px !important;
 	}
 }
 @media (min-width: 480px){
 	html{
-		font-size:64px;
+		font-size:64px !important;
 	}
 }
 @media (min-width: 540px){
 	html{
-		font-size:72px;
+		font-size:72px !important;
 	}
 }
 @media (min-width: 600px){
 	html{
-		font-size: 80px;
+		font-size: 80px !important;
 	}
 }
 /*在大于640 像素的屏幕*/
 @media (min-width: 640px){
 	html{
-		font-size: 85.33333333333333px;
+		font-size: 85.33333333333333px !important;
 	}
 }
 @media (min-width: 750px){
 	html{
-		font-size:100px;
+		font-size:100px !important;
 	}
 }
 @media (min-width: 768px){
 	html{
-		font-size:100px;
+		font-size:100px !important;
 	}
 }
-body,* {  font-family: 'Microsoft Yahei', '微软雅黑',sans-serif;/*上下拉动滚动条时卡顿、慢*/  -webkit-overflow-scrolling: touch;  overflow-scrolling: touch;  -webkit-touch-callout: none;/*长时间按住页面出现闪退*/  -webkit-tap-highlight-color:rgba(255,255,255,0);/*ios和android下触摸元素时出现半透明灰色遮罩*/  -webkit-text-size-adjust:100%;/*旋转屏幕时，字体大小调整的问题*/  }
+body,* {  font-family: 'Microsoft Yahei', '微软雅黑',sans-serif !important;/*上下拉动滚动条时卡顿、慢*/  -webkit-overflow-scrolling: touch;  overflow-scrolling: touch;  -webkit-touch-callout: none;/*长时间按住页面出现闪退*/  -webkit-tap-highlight-color:rgba(255,255,255,0);/*ios和android下触摸元素时出现半透明灰色遮罩*/  -webkit-text-size-adjust:100%;/*旋转屏幕时，字体大小调整的问题*/  }
 /*标签通用设置*/
 a{text-decoration: none;outline: none;border: none}
 img{border-style:none; }
@@ -188,7 +188,7 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 .sh_border_radius_5{border-radius: 0.05rem}
 .sh_border_radius_50{border-radius:50%}
 .sh_outline{outline: 1px solid #eeeeee}
-.sh_box-sizing_C{box-sizing: border-box;}
+.sh_box-sizing_C{box-sizing: border-box !important;}
 /*字体间距*/
 .sh_wor_space{word-spacing: 0.12rem}
 /*元素垂直与其他居中*/
@@ -259,8 +259,8 @@ b,em,i,dfn{font-style: normal;font-weight: normal}
 /*.sh_bottom_5{bottom: 5%}1*/
 .sh_right_0{right: 0}
 .sh_right_1{right:2%}
-.sh_right_5{right:5%}
-.sh_right_25{right:25%}
+.sh_right_3{right:3%}
+.sh_right_22{right:22%}
 .sh_left_0{left: 0}
 /*宽度、高度*/
 .sh_width_max{max-width: 750px;}
@@ -312,7 +312,7 @@ input::-webkit-input-placeholder { vertical-align: middle;line-height: normal;co
 input::-moz-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
 input:-ms-input-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
 input:-moz-placeholder {vertical-align: middle;line-height: normal;color:#949796;font-size: 0.3rem;}
-input[type=number],input[type=text],input[type=button],input[type=password]{-webkit-appearance: none;outline: none;border: none;box-sizing: border-box;font-family: 'Microsoft Yahei', '微软雅黑',sans-serif}/*iphone及ipad下输入框默认内阴影*/
+input[type=text],input[type=number],input[type=button],input[type=password]{-webkit-appearance: none;outline: none;border: none;box-sizing: border-box;font-family: 'Microsoft Yahei', '微软雅黑',sans-serif}/*iphone及ipad下输入框默认内阴影*/
 /*图片自适应及图片大小设置*/
 .sh_img_max{ display: block;margin: auto; max-width: 100%;}
 .index_choose{max-height: 0.33rem}
@@ -414,6 +414,8 @@ input[type=checkbox]:focus {
 .pers_order_ar{width: 0.4rem;height: 0.3rem}
 /*p_order页面end*/
 .save_store_img{max-width:1.98rem;max-height: 1.98rem}
+.order_store_img{width:1.98rem;height: 1.98rem}
+
 .save_store_imgh{height:1.98rem}
 .save_store_s{width:0.4rem;height:0.4rem}
 /*收藏页面end*/
@@ -427,6 +429,8 @@ input[type=checkbox]:focus {
 /*遮罩设置con_order_de_addrNoti页面end*/
 .addr_list{max-height: 0.4rem;max-width: 0.4rem}
 .addr_list_plus{background: url("../demo/addr_list_plus.png") no-repeat left center;background-size: 0.34rem }
+.addr_list_det{max-height: 1.3rem}
+#_waiting_load{width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.27);position: fixed;left: 0%;top:0;z-index: 999;display: block}
 /*con_order_addrList页面end*/
 
 

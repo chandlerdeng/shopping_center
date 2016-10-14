@@ -1,0 +1,65 @@
+{
+  "data": {
+    "loadMemAddressList": [
+      {
+        "address": "坂田街道",
+        "addressId": "b5809b9b-b535-4945-af3b-3f07ec310174",
+        "areaCode": "",
+        "cityId": "fd266bc5-0a18-402d-8412-10cd1df41a2e",
+        "cityName": "深圳市",
+        "consignee": "张三",
+        "districtId": "10f05fae-8c8d-4c9e-a7b1-65069d1a3936",
+        "districtName": "罗湖区",
+        "email": "",
+        "ext": "",
+        "field_1": "18664360917",
+        "isDefault": "N",
+        "memberId": "de65e044-bc7a-4b11-baa1-b5cbb20d4938",
+        "mobile": "186****0917",
+        "provinceId": "e26e8e3c-8eaf-40fe-80d8-46f98151608e",
+        "provinceName": "广东省",
+        "tel": ""
+      },
+      {
+        "address": "哈哈",
+        "addressId": "0ee2bb43-f3c4-4737-a50e-7ce6664e2f3a",
+        "areaCode": "",
+        "cityId": "e3e3f426-48e1-4841-8591-2dcbe7d9f8b1",
+        "cityName": "郑州市",
+        "consignee": "李四",
+        "districtId": "5ad90a7d-6362-43d6-b848-0489bb70cd5f",
+        "districtName": "二七区",
+        "email": "",
+        "ext": "",
+        "field_1": "13834333333",
+        "isDefault": "N",
+        "memberId": "de65e044-bc7a-4b11-baa1-b5cbb20d4938",
+        "mobile": "138****3333",
+        "provinceId": "0e08f10e-8c8f-4f8e-8cac-4a363afd5987",
+        "provinceName": "河南省",
+        "tel": ""
+      },
+      {
+        "address": "重庆村",
+        "addressId": "05ed0a01-743a-4b81-9d26-272631bb5ff2",
+        "areaCode": "",
+        "cityId": "4d071d8a-0d53-469f-946f-2264301cb384",
+        "cityName": "重庆市",
+        "consignee": "王五",
+        "districtId": "986f1479-dac9-461a-8d6e-13b087e64575",
+        "districtName": "万州区",
+        "email": "",
+        "ext": "",
+        "field_1": "13345678901",
+        "isDefault": "Y",
+        "memberId": "de65e044-bc7a-4b11-baa1-b5cbb20d4938",
+        "mobile": "133****8901",
+        "provinceId": "f1d4c3a9-cc58-45a6-96f1-6cc0c9b20181",
+        "provinceName": "重庆市",
+        "tel": ""
+      }
+    ]
+  },
+  "msg": "操作成功",
+  "status": "100"
+}

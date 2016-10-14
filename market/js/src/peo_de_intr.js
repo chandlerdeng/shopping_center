@@ -6,9 +6,9 @@ define(function (require, exports, module) {
     var formatNum=require('http://res.csc86.com/f=v2/shopping_center/market/js/src/formatNum');
     var isLogin = require('//api.csc86.com/notify/count/all/?callback=define');
     var fastclick = require("fastclick");//fastclick
-    //$(function() {
-    //    FastClick.attach(document.body);
-    //});
+    $(function() {
+        FastClick.attach(document.body);
+    });
     var pro_de_intr = {  //此对象是商品详情页对应js
         tab: function () {//商品详情页面tab切换
             $(".sh_tab_box li").on('click', function () {//tab函数

@@ -1,0 +1,24 @@
+﻿{
+  "data": {
+    "loadAddressDetail": {
+      "address": "哈哈",
+      "addressId": "0ee2bb43-f3c4-4737-a50e-7ce6664e2f3a",
+      "areaCode": "",
+      "cityId": "e3e3f426-48e1-4841-8591-2dcbe7d9f8b1",
+      "cityName": "郑州市",
+      "consignee": "李四",
+      "districtId": "5ad90a7d-6362-43d6-b848-0489bb70cd5f",
+      "districtName": "二七区",
+      "email": "",
+      "ext": "",
+      "isDefault": "N",
+      "memberId": "de65e044-bc7a-4b11-baa1-b5cbb20d4938",
+      "mobile": "13834333333",
+      "provinceId": "0e08f10e-8c8f-4f8e-8cac-4a363afd5987",
+      "provinceName": "河南省",
+      "tel": ""
+    }
+  },
+  "msg": "操作成功",
+  "status": "100"
+}

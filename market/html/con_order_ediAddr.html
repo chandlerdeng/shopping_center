@@ -15,21 +15,67 @@
 	<meta name="MobileOptimized" content="320"><!--微软老式浏览器-->
 	<meta name="msapplication-tap-highlight" content="no"><!--windows phone 点击无高光-->
 	<title>编辑收货地址</title>
-	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">-->
-	<link rel="stylesheet" href="../css/common.css">
+	<!--<link rel="stylesheet" href="../css/common.css">-->
+	<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+	<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">
 </head>
+<style>
+	body,html{
+		background: #fff;
+	}
+	.picker-modal{
+		background: #fff
+	}
+	.bar{               /*选择省市区头部*/
+		background: #eee;
+		height:0.8rem;
+		padding-right:0rem;
+		padding-left: 0rem;
+	}
+	.picker-columns{  /*选择省市区容器*/
+		height:5rem
+	}
+	.bar .button.pull-left{margin-right:0rem;}
+	.bar .button.pull-right {margin-left:0rem;}
+	.bar .button-link {/*确定取消按钮*/
+		font-size: .28rem;
+		line-height: 0.8rem;
+		height: 0.8rem;
+	}
+	.title {/*选择省市区标题栏*/
+		margin: 0rem;
+		font-size: .28rem;
+		line-height: 0.8rem;
+	}
+	.picker-items{/*选择省市区市区选择区域*/
+		font-size:0.28rem;
+	}
+	.bar+.picker-items {
+		height: 3rem;
+	}
+	.city-picker .col-province{/*选择省市区市区选择区域列宽*/
+		width:3.5rem;
+	}
+	.city-picker .col-city {
+		width: 4rem;
+	}
+	* {
+	 box-sizing:content-box; }
+</style>
 <body>
 <!--导航start-->
 <header class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1" >
 	<div class="sh_margin_a sh_width_max ">
-		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 ">
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 sh_box-sizing_C">
 			<a href="javascript:history.go(-1);" class="sh_font_sz0">
 				<img src="http://res.csc86.com/v2/shopping_center/market/demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">
+				<!--<img src="../demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">-->
 			</a>
 		</div>
 		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28 ">编辑收货地址</div>
-		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 edit_addr_dust">
+		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 edit_addr_dust sh_box-sizing_C">
 			<img src="http://res.csc86.com/v2/shopping_center/market/demo/edit_addr_d.png" alt="" class="sh_v_middle edit_addr sh_pd_bottom10 sh_pd_top10"/>
+			<!--<img src="../demo/edit_addr_d.png" alt="" class="sh_v_middle edit_addr sh_pd_bottom10 sh_pd_top10"/>-->
 		</div>
 	</div>
 </header>
@@ -39,26 +85,26 @@
 		 <div class="sh_bor_bottom_1">
 			 <div class="sh_margin_a sh_width_92">
 				 <div class="sh_pd_bottom30 sh_pd_top30 sh_lingheight_100">
-					 <label for="" class="sh_di_inblock sh_width_2 ">收&nbsp;货&nbsp;人</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10"/>
+					 <label for="" class="sh_di_inblock sh_width_2 ">收&nbsp;货&nbsp;人</label><input type="text"  id="_add_list_getPers" value=""class=" sh_pd_left14 sh_font_sz28 sh_font_color13 sh_width_10 sh_box-sizing_C"/>
 				 </div>
 			 </div>
 		 </div>
 		<div class="sh_bor_bottom_1">
 			<div class="sh_margin_a sh_width_92">
 				<div class="sh_pd_bottom30 sh_pd_top30">
-					<label for="" class="sh_di_inblock sh_width_2 ">手机号码</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10"/>
+					<label for="" class="sh_di_inblock sh_width_2 ">手机号码</label><input  type="text"  id="_add_list_phone" value=""class="sh_pd_left14 sh_font_sz28 sh_font_color13 sh_width_10 sh_box-sizing_C"/>
 				</div>
 			</div>
 		</div>
 		<div class="sh_clear  line_hg1_5 sh_box-sizing_C sh_bor_bottom_1 sh_pd_top30 sh_pd_bottom30 edit_addr_cityPar">
-			<div class="sh_width_92 sh_margin_a edit_addr_citybg">
-				<label for="" class="sh_di_inblock sh_width_2 ">所在地区</label><input type="text" value="" readonly class="sh_font_sz28 sh_font_color13 sh_width_8 edit_addr_cityCt" style="outline: 1px solid red"/>
-			</div>
+		<div class="sh_width_92 sh_margin_a" >
+			<label for="" class="sh_di_inblock sh_width_2 ">所在地区</label><input type="text" id="_add_list_pla"  placeholder="" value="" readonly="" class="edit_addr_citybg sh_pd_left14 sh_font_sz28 sh_font_color13 sh_width_10 edit_addr_cityCt sh_box-sizing_C"/>
 		</div>
+	</div>
 		<div class="sh_bor_bottom_1">
 			<div class="sh_margin_a sh_width_92">
-				<div class="sh_pd_bottom30 sh_pd_top30">
-					<label for="" class="sh_di_inblock sh_width_2">详细地址</label><input type="text" value=""class="sh_font_sz28 sh_font_color13 sh_width_10 "/>
+				<div class="sh_pd_bottom30 sh_pd_top30" >
+					<label for="" class="sh_di_inblock sh_width_2">详细地址</label><input type="text" id="_add_list_plaDetail" value=""class="sh_pd_left14 sh_font_sz28 sh_font_color13 sh_width_10 sh_box-sizing_C "/>
 				</div>
 			</div>
 		</div>
@@ -78,12 +124,18 @@
 		</div>
 	</div>
 </div>
+
+<div id="_waiting_load" class="sh_te_align_c" >
+	<img src="../demo/loading.gif" alt="" class="loading sh_img_max sh_pd_top182"/>
+	<div class="loading_p sh_font_sz34 sh_lingheight_100 ">.</div>
+</div>
 </body>
-<!--<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>-->
 <!--<script src="../../common/seajs/sea.js"></script>-->
-<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>
+<!--<script src="../../common/js/l/zepto/zepto.min.js"></script>-->
+<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/zepto/zepto.min.js"></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
 <script>
-	seajs.use('/v2/shopping_center/market/js/src/con_order_addrList.js');
-	//    seajs.use('../js/src/con_order_addrList');
+	seajs.use('/v2/shopping_center/market/js/src/con_order_ediAddr.js');
+//	    seajs.use('../js/src/con_order_ediAddr');
 </script>
 </html>

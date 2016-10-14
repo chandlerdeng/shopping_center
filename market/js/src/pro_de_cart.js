@@ -3,16 +3,16 @@
  */
 
 define(function (require, exports, module) {
-    $.debug = true;
-    var ShopCart = require("./shopcart");
+    $.debug = false;
+    var ShopCart = require("./shopcart"); //购物车的数据模型
     var shopCart;
-    var loading = require("./loading");
-    var formatNum = require("./formatNum");
-    var isLogin_stu = require('//api.csc86.com/notify/count/all/?callback=define');
-    // var fastclick = require('fastclick');//fastclick
-    //$(function() {
-    //    FastClick.attach(document.body);
-    //});
+    var loading = require("./loading"); //加载
+    var formatNum = require("./formatNum"); //价格的格式
+    var isLogin_stu = require('//api.csc86.com/notify/count/all/?callback=define'); //判断是否登录
+     var fastclick = require('fastclick');//fastclick
+    $(function() {
+        FastClick.attach(document.body);
+    });
     var pro_cart = {
         shopping_cart: function () {//购物车
             var $els = {};
@@ -29,7 +29,7 @@ define(function (require, exports, module) {
                                 if (!data.data.shoppingCar || data.data.shoppingCar.length == 0) {
                                     str =
                                         "<div class='pro_de_cartContent' class='sh_te_align_c sh_font_sz0'>" +//当购物车内容为空时
-                                             "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
+                                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
                                         "</div>";//如果没有数据或者长度为0时
                                     $("#pro_de_cartContainer").html(str);
                                     return;
@@ -39,7 +39,7 @@ define(function (require, exports, module) {
                                 shopCart.compIds.forEach(function (compId) {
                                     var comp = shopCart.comps[compId];
                                     str +=
-                                    "<div class='pro_de_cartContent sh_bg_color_1'>" +//动态获取内容开始开始
+                                        "<div class='pro_de_cartContent sh_bg_color_1'>" +//动态获取内容开始开始
                                         "<div class='sh_clear sh_pd_bottom30 sh_pd_top30 pro_de_cart_title'>" +//公司标题开始区域
                                         "<div class='sh_width_1 sh_float_l sh_lingheight_100 sh_te_align_r sh_font_sz26 sh_positon_r'>" +
                                         "<input type='checkbox' name='tittle_list' class='chkbox-in-list chkbox-comp' data-comp-id='" + compId + "'/>" +//标题复选框
@@ -81,11 +81,11 @@ define(function (require, exports, module) {
                                                 "</div>" +
                                                 "</div>" +//数量栏结束
                                                 "<div class='sh_clear_sp sh_font_color13 sh_font_sz24 sh_lingheight_100 '>" +
-                                                    "<div class='sh_ellipsis sh_pd_bottom20'><em>" + cs[0] + "</em>" + "</div>" +
-                                                    "<div class='sh_float_l sh_width_6 sh_ellipsis'><em>" + cs[1] + "</em></div>" +
-                                                    "<div class='sh_float_r  sh_width_6 sh_ellipsis sh_te_align_r'><span>总价：</span>" +
-                                                         "<em class='sh_font_color2'>￥</em>" + "<em class='sh_font_color2 pro_de_cartPl'>" + formatNum(sp.calcTotal().toFixed(2)) + "</em>" +
-                                                    "</div>" +
+                                                "<div class='sh_ellipsis sh_pd_bottom20'><em>" + cs[0] + "</em>" + "</div>" +
+                                                "<div class='sh_float_l sh_width_6 sh_ellipsis'><em>" + cs[1] + "</em></div>" +
+                                                "<div class='sh_float_r  sh_width_6 sh_ellipsis sh_te_align_r'><span>总价：</span>" +
+                                                "<em class='sh_font_color2'>￥</em>" + "<em class='sh_font_color2 pro_de_cartPl'>" + formatNum(sp.calcTotal().toFixed(2)) + "</em>" +
+                                                "</div>" +
                                                 "</div>" +//总价栏结束
                                                 "</div>" +
                                                 "</div>" +//产品详细图片结束
@@ -104,8 +104,8 @@ define(function (require, exports, module) {
                         error: function (xhr, type) {
                             var res =
                                 "<div class='pro_de_cartContent' class=' sh_font_sz0 sh_lingheight_100'>" +//动态获取内容开始开始"
-                                    "<img src='http://res.csc86.com/v2/shopping_center/market/demo/loading.gif' alt='' class='loading sh_img_max sh_pd_top182 sh_margin_a'/>" +
-                                    "<span class='loading_p sh_font_sz34 sh_lingheight_100 sh_di_block sh_te_align_c'>.</span>" +
+                                "<img src='http://res.csc86.com/v2/shopping_center/market/demo/loading.gif' alt='' class='loading sh_img_max sh_pd_top182 sh_margin_a'/>" +
+                                "<span class='loading_p sh_font_sz34 sh_lingheight_100 sh_di_block sh_te_align_c'>.</span>" +
                                 "</div>";
                             $("#pro_de_cartContainer").html(res);
                         }
@@ -113,10 +113,10 @@ define(function (require, exports, module) {
                 } else {//没有登录状态
                     var blank =
                         "<div class='pro_de_cartContent' class=' sh_font_sz0 sh_lingheight_100'>" +//动态获取内容开始开始"
-                            "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_nLogin.png' alt=''class='sh_margin_a  sh_img_max'/>" +
-                            "<a href='http://res.csc86.com/v2/shopping_center/market/html/login.html'>" +
-                                "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_noLoginB.png' alt=''class='sh_margin_a  sh_img_max' style='height: 0.88rem'/>" +
-                            "</a>" +
+                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_nLogin.png' alt=''class='sh_margin_a  sh_img_max'/>" +
+                        "<a href='http://res.csc86.com/v2/shopping_center/market/html/login.html'>" +
+                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_noLoginB.png' alt=''class='sh_margin_a  sh_img_max' style='height: 0.88rem'/>" +
+                        "</a>" +
                         "</div>";
                     $("#pro_de_cartContainer").html(blank);
                 }
@@ -212,19 +212,19 @@ define(function (require, exports, module) {
                 shangpinCBs.each(function (){
                     var sp = shopCart.comps[$(this).data("compId")].shangpins[$(this).data("spGrpId")].sameSPs[$(this).data("detailId")];
                     favarr.push({
-                       lineId: sp.detailId,
-                       productId:sp.id,
-                       shopId: sp.sellerId
+                        lineId: sp.detailId,
+                        productId:sp.id,
+                        shopId: sp.sellerId
                     });
                     delarr.push(sp.detailId);
                 });
                 switch (type) {
-                   case "delete":
-                       params={"lineIds":delarr.join(",")};
-                       break;
-                   default:
-                       params={"favoritesList":favarr};
-                       break;
+                    case "delete":
+                        params={"lineIds":delarr.join(",")};
+                        break;
+                    default:
+                        params={"favoritesList":favarr};
+                        break;
                 }
                 //debugger;
                 console.log("favorite / remove these shangpins:");
@@ -257,7 +257,7 @@ define(function (require, exports, module) {
                                 var str=""
                                 str =
                                     "<div class='pro_de_cartContent' class='sh_te_align_c sh_font_sz0'>" +//当购物车内容为空时
-                                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
+                                    "<img src='http://res.csc86.com/v2/shopping_center/market/demo/pro_de_cart_bl.png' alt='' class='loading sh_img_max sh_margin_a'/>" +
                                     "</div>";//如果没有数据或者长度为0时
                                 $("#pro_de_cartContainer").html(str);
                                 return;
