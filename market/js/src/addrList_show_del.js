@@ -5,15 +5,15 @@
  * Created by Administrator on 2016/8/24.
  */
 define(function(require, exports, module) {
-    $.debug=false;
-    var isLogin = require('//api.csc86.com/notify/count/all/?callback=define');
+    $.debug=true;
+    //var isLogin = require('//api.csc86.com/notify/count/all/?callback=define');
     var _notice=function(ele,$ele,content,time){
         setTimeout(function(){
             $(ele).hide();
             $($ele).addClass(" disabled").html(content);
         },time)
     };
-    function addrList_show_del(url, type,container,param,meth) {//地址列表删除、新增功能、展示地址列表数据函数
+    function addrList_show_del(url, type,container,param,meth, updateStoreFn) {//地址列表删除、新增功能、展示地址列表数据函数
         var params,method;
         switch (type) {
             case "_addr_list"://获取收货地址列表
@@ -43,7 +43,7 @@ define(function(require, exports, module) {
         if ($.debug || isLogin.status) {
             $.ajax({
                 url: url,
-                type:method,
+                type:$.debug ? "get" : method,
                 contentType: "application/json; charset=utf-8",
                 dataType: $.debug ? "json" : "jsonp",
                 data:params,
@@ -66,10 +66,12 @@ define(function(require, exports, module) {
                                                     "<dt class=' sh_font_sz28 sh_font_color13 sh_pd_top20 sh_lingheight_1_5'>"+data.data.loadMemAddressList[i].provinceName+data.data.loadMemAddressList[i].cityName+data.data.loadMemAddressList[i].districtName+data.data.loadMemAddressList[i].address+"</dt>"+
                                                 "</dl>"+
                                             "<a/>"+
-                                            "<a href='http://res.csc86.com/v2/shopping_center/market/html/con_order_ediAddr.html?addressId="+data.data.loadMemAddressList[i].addressId+"'>"+
+                                            //"<a href='http://res.csc86.com/v2/shopping_center/market/html/con_order_ediAddr.html?addressId="+data.data.loadMemAddressList[i].addressId+"'>"+
+                                            "<a href='../../market/html/con_order_ediAddr.html?addressId="+data.data.loadMemAddressList[i].addressId+"'>"+
                                                 "<dl class='sh_clear sh_width_1 sh_float_l sh_box-sizing_C sh_te_align_r addr_list_wri sh_font_sz0 sh_lingheight_100 sh_dispfix'>"+
                                                         "<dt>"+
-                                                        "<img src='http://res.csc86.com/v2/shopping_center/market/demo/addr_list.png' alt=''  class='addr_list'/>"+
+                                                        //"<img src='http://res.csc86.com/v2/shopping_center/market/demo/addr_list.png' alt=''  class='addr_list'/>"+
+                                                        "<img src='../demo/addr_list.png' alt=''  class='addr_list'/>"+
                                                         "</dt>"+
                                                 "</dl>"+
                                             "<a/>"+
@@ -85,7 +87,6 @@ define(function(require, exports, module) {
                         }
                     }
                     if(type=="edi_addr_saveBtn"){ //新建地址按钮
-                        console.log(data)
                         if(data.status==100){
                             $("#msg-content").html(data.msg).show();
                             _notice("#msg-content",".edi_addr_saveBtn","保存",1500);
@@ -102,8 +103,7 @@ define(function(require, exports, module) {
                         if(data.status==100){
                             $("#msg-content").html(data.msg).show();
                             _notice("#msg-content",".edi_addr_saveBtn","保存",1500)
-
-
+                            updateStoreFn();
                         }else{
                             $("#msg-content").html(data.msg).show();
                             _notice("#msg-content",".edi_addr_saveBtn","保存",1500);
@@ -131,7 +131,8 @@ define(function(require, exports, module) {
                                     var _res_data=data.data.loadAddressDetail;
                                     $("#_add_list_getPers").val(_res_data.consignee);
                                     $("#_add_list_phone").val(_res_data.mobile);
-                                    $("#_add_list_pla").val(_res_data.provinceName+""+_res_data.cityName+""+_res_data.districtName);
+                                    updateStoreFn(_res_data);
+                                    $("#_add_list_pla").val(_res_data.provinceName+","+_res_data.cityName+","+_res_data.districtName);
                                     $("#_add_list_plaDetail").val(_res_data.address);
                                 }
                             }

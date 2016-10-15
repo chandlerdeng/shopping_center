@@ -15,15 +15,16 @@
 	<meta name="MobileOptimized" content="320"><!--微软老式浏览器-->
 	<meta name="msapplication-tap-highlight" content="no"><!--windows phone 点击无高光-->
 	<title>收货地址列表</title>
-	<!--<link rel="stylesheet" href="../css/common.css">-->
-	<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<!--<link rel="stylesheet" href="http://res.csc86.com/f=v2/shopping_center/market/css/common.css">-->
 </head>
 <!--导航start-->
 <header class="sh_positon_f sh_left_0 sh_right_0 sh_top_0  sh_z-index_10  sh_box-sizing_C  box_shaow sh_bg_color_1" >
 	<div class="sh_margin_a sh_width_max ">
 		<div class="sh_width_2 sh_float_l sh_te_align_c sh_pr_hg90  sh_font_sz0 sh_lingheight_90 ">
 			<a href="javascript:history.go(-1);" class="sh_font_sz0">
-				<img src="http://res.csc86.com/v2/shopping_center/market/demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">
+				<!--<img src="http://res.csc86.com/v2/shopping_center/market/demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">-->
+				<img src="../demo/pro_intrHead_left_a.png" alt="" class="sh_v_middle pro_intrHead_left_a sh_bor_right_3 sh_pd_right36 sh_pd_bottom10 sh_pd_top10">
 			</a>
 		</div>
 		<div class="sh_width_8 sh_float_l sh_te_align_c sh_font_sz34  sh_font_color6 sh_lingheight_100 sh_pd_bottom28 sh_pd_top28 ">收货地址列表</div>
@@ -66,9 +67,11 @@
 </footer>
 <!--底部导航end-->
 </body>
-<!--<script src="http://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>-->
-<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>
+<script src="../../common/js/l/jq/jquery-3.0.0.min.js"></script>
+<script src="../../common/seajs/sea.js"></script>
+<!--<script src="http://res.csc86.com/f=v2/shopping_center/common/seajs/sea.js,v2/shopping_center/common/seajs/config.js,v2/shopping_center/common/js/l/jq/jquery-3.0.0.min.js"></script>-->
 <script>
-	seajs.use('/v2/shopping_center/market/js/src/con_order_addrList.js');
+//	seajs.use('/v2/shopping_center/market/js/src/con_order_addrList.js');
+	seajs.use('../js/src/con_order_addrList');
 </script>
 </html>
